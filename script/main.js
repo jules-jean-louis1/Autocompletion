@@ -1,9 +1,10 @@
 const search = document.querySelector("#searchInput");
 
+search.addEventListener("input", inputSearchBar);
 async function inputSearchBar() {
     let query = search.value;
     console.log(query);
-    let request = await fetch(`recherche.php?search=${query}`)
+    let request = await fetch('recherche.php?search='+query)
         .then((response) => {
         return response.json();
     })
@@ -28,4 +29,3 @@ async function inputSearchBar() {
 }
 
 
-search.addEventListener("input", inputSearchBar);

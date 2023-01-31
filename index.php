@@ -1,3 +1,7 @@
+<?php
+include 'recherche.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
