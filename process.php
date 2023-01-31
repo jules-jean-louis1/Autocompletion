@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_GET['query'])) {
     $pdo = new PDO('mysql:host=localhost;dbname=autocompletion;charset=utf8', 'root', '');
     $query = $pdo->query("SELECT * FROM fruits WHERE nom LIKE '{$_GET['query']}%' LIMIT 0, 10");
@@ -14,3 +15,6 @@ if (isset($_GET['query'])) {
     }
     echo json_encode($result);
 }
+
+
+?>

@@ -1,5 +1,5 @@
 <?php
-include 'recherche.php';
+include 'process.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ include 'recherche.php';
                     </h2>
                 </div>
                 <div id="search">
-                    <form action="" method="get" id="searchForm" class="flex flex-row">
+                    <form action="recherche.php" method="get" id="searchForm" class="flex flex-row">
                         <div id="form-field">
                             <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required>
                             <div id="results"></div>

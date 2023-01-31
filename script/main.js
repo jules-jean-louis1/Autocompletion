@@ -1,28 +1,29 @@
 const search = document.querySelector("#searchInput");
 
-search.addEventListener("input", inputSearchBar);
-async function inputSearchBar() {
+search.addEventListener("input", getElement);
+async function getElement(event) {
     let query = search.value;
     console.log(query);
-    let request = await fetch('recherche.php?search='+query)
+    await fetch('process.php?query='+query)
         .then((response) => {
+            console.log(response);
         return response.json();
     })
     .then((data) => {
-        let result = document.querySelector("#result");
-        result.innerHTML = "";
+        let results = document.querySelector("#results");
+        results.innerHTML = "";
         for (const element of data) {
             let result = document.createElement("div");
             result.setAttribute("class", "result");
             result.innerHTML = element.title;
             result.addEventListener("click", (event) => {
                 search.value = element.title;
-                result.innerHTML = "";
+                results.innerHTML = "";
             });
             result.append(result);
         }
         if (query == "") {
-            result.innerHTML = "";
+            results.innerHTML = "";
         }
     });
 
