@@ -1,6 +1,3 @@
-<?php
-include 'recherche.php';
-?>
 
 <!DOCTYPE html>
 <html>
@@ -30,8 +27,8 @@ include 'recherche.php';
                 <div id="search">
                     <form action="" method="get" id="searchForm" class="flex flex-row">
                         <div id="form-field">
-                            <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required>
-                            <div id="results"></div>
+                            <input type="text" name="search_box" class="form-control form-control-lg" placeholder="Type Here..." id="search_box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onkeyup="javascript:load_data(this.value)" onfocus="javascript:load_search_history()" />
+                            <span id="search_result"></span>
                         </div>
                         <button type="submit">Rechercher</button>
                     </form>
@@ -42,5 +39,8 @@ include 'recherche.php';
 <footer>
 
 </footer>
+<script>
+
+</script>
 </body>
 </html>
