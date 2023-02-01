@@ -1,13 +1,20 @@
 <?php
 require_once "connexion/bddConnect.php";
 
-if (isset($_GET['query'])) {
-    $query = $pdo->query("SELECT * FROM livre WHERE book LIKE '{$_GET['query']}%' LIMIT 0, 10");
+if (isset($_GET['search'])){
+    $livreSelect = $_GET['search'];
+    $pdo = new PDO('mysql:host=localhost;dbname=autocompletion;charset=utf8', 'root', '');
+    $query = $pdo->query("SELECT * FROM livre WHERE book LIKE " . $pdo->quote($livreSelect));
+    if (!$query) {
+        $error = $pdo->errorInfo();
+        echo "Error: " . $error[2];
+    }
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($result);
 }
 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,7 +53,56 @@ if (isset($_GET['query'])) {
     </nav>
 </header>
 <main>
-
+    <article>
+        <section class="h-5/6">
+            <div id="diplayBook" >
+                <div class="flex justify-center pt-[25%]">
+                    <?php
+                    foreach ($result as $book):
+                        ?>
+                        <div class="w-10/12 flex flex-col items-center border-[1px] border-gray-600 rounded py-4 px-2" style="background-color: rgba(0,0,0,.5);">
+                            <div class="flex flex-col items-center">
+                                <img src="<?= $book['cover'] ?>" alt="img" class="w-40 h-60">
+                                <div class="flex flex-col items-center">
+                                    <div class="flex">
+                                        <h1 class="text-base font-semibold">
+                                            Titre:
+                                        </h1>
+                                        <h1 class="text-base mx-2">
+                                            <?= $book['book'] ?>
+                                        </h1>
+                                    </div>
+                                    <div class="flex">
+                                        <h1 class="text-base font-semibold">
+                                            Auteur:
+                                        </h1>
+                                        <h1 class="text-base mx-2">
+                                            <?= $book['author'] ?>
+                                        </h1>
+                                    </div>
+                                    <div class="flex">
+                                        <h1 class="text-base font-semibold">
+                                            <?= $book['bookDescription'] ?>
+                                        </h1>
+                                    </div>
+                                    <div class="flex">
+                                        <h1 class="text-base font-semibold">
+                                            Année:
+                                        </h1>
+                                        <h1 class="text-base mx-2">
+                                            <?= $book['releaseBook']  ?>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach;
+                    ?>
+                </div>
+            </div>
+        </section>
+    </article>
 </main>
 <footer class="w-full fixed bottom-0 border-t-[1px] border-gray-600 ">
     <div id="containerFooter">

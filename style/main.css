@@ -37,3 +37,7 @@ main {
 #containerLivre h2{
     color: #f2f3f6;
 }
+/****##### D I S P L A Y B O O K #####****/
+#displayBook {
+    background-color: rgba(0,0,0,.5);
+}
