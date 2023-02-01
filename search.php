@@ -1,6 +1,8 @@
 <?php
+// ajoute de la connexion à la bdd
 require_once "connexion/bddConnect.php";
-
+// on utlise la variable globale $_GET pour récupérer la valeur de l'input du formulaire
+// si la variable $_GET['search'] existe alors on la stocke dans la variable $livreSelect
 if (isset($_GET['search'])){
     $livreSelect = $_GET['search'];
     $pdo = new PDO('mysql:host=localhost;dbname=autocompletion;charset=utf8', 'root', '');
@@ -55,8 +57,13 @@ if (isset($_GET['search'])){
 <main>
     <article>
         <section class="h-5/6">
-            <div id="diplayBook" >
-                <div class="flex justify-center pt-[25%]">
+            <div id="diplayBook" class=" pt-[20%]" >
+                <div id="resultsearchbook">
+                    <h2 class="text-2xl font-semibold text-center py-4">
+                        Résultat de la recherche:
+                    </h2>
+                </div>
+                <div class="flex  justify-center">
                     <?php
                     foreach ($result as $book):
                         ?>
@@ -64,7 +71,7 @@ if (isset($_GET['search'])){
                             <div class="flex flex-col items-center">
                                 <img src="<?= $book['cover'] ?>" alt="img" class="w-40 h-60">
                                 <div class="flex flex-col items-center">
-                                    <div class="flex">
+                                    <div class="flex my-[1.4px]">
                                         <h1 class="text-base font-semibold">
                                             Titre:
                                         </h1>
@@ -72,7 +79,7 @@ if (isset($_GET['search'])){
                                             <?= $book['book'] ?>
                                         </h1>
                                     </div>
-                                    <div class="flex">
+                                    <div class="flex my-[1.4px]">
                                         <h1 class="text-base font-semibold">
                                             Auteur:
                                         </h1>
@@ -80,12 +87,12 @@ if (isset($_GET['search'])){
                                             <?= $book['author'] ?>
                                         </h1>
                                     </div>
-                                    <div class="flex">
+                                    <div class="flex my-[1.4px]">
                                         <h1 class="text-base font-semibold">
                                             <?= $book['bookDescription'] ?>
                                         </h1>
                                     </div>
-                                    <div class="flex">
+                                    <div class="flex my-[1.4px]">
                                         <h1 class="text-base font-semibold">
                                             Année:
                                         </h1>
