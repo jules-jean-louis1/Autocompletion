@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url("images/Arrière-plan-copie.jpg") no-repeat center center fixed;
+}
+header {
+    background-color: rgba(0,0,0,.5);
+}
+
+#containerLogo, #linkGit i {
+    color: #f2f3f6;
+}

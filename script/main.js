@@ -15,9 +15,9 @@ async function getElement(event) {
             for (const element of data) {
                 let result = document.createElement("div");
                 result.setAttribute("class", "result");
-                result.innerHTML = element.nom;
+                result.innerHTML = element.book;
                 result.addEventListener("click", (event) => {
-                    search.value = element.nom;
+                    search.value = element.book;
                     results.innerHTML = "";
                 });
                 results.appendChild(result);
