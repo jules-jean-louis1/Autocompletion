@@ -1,0 +1,19 @@
+Index: style/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\r\n\r\n*{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\nbody {\r\n    background: url(\"../images/Arrière-plan-copie.png\") no-repeat center center fixed;\r\n}\r\nheader {\r\n    background-color: rgba(0,0,0,.5);\r\n}\r\n\r\n#containerLogo, #linkWebFooter i{\r\n    color: #f2f3f6;\r\n}\r\nbutton{\r\n    color: #f2f3f6;\r\n}\r\n#containerLogo:hover i, #linkWebFooter:hover i {\r\n    color: #707173;\r\n}\r\nmain {\r\n    color: #f2f3f6;\r\n}\r\n#titreSectionSearch {\r\n    color: #f2f3f6;\r\n    font-family: 'Montserrat', sans-serif;\r\n}\r\n/****##### L I V R E #####****/\r\n#containerLivre{\r\n    background-color: rgba(0,0,0,.5);\r\n    width: 45%;\r\n    max-width: 45%;\r\n}\r\n#containerLivre h2{\r\n    color: #f2f3f6;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/style/main.css b/style/main.css
+--- a/style/main.css	
++++ b/style/main.css	
+@@ -6,7 +6,7 @@
+     box-sizing: border-box;
+ }
+ body {
+-    background: url("../images/Arrière-plan-copie.png") no-repeat center center fixed;
++    background: url("../images/bg---4.jpg") no-repeat center center fixed;
+ }
+ header {
+     background-color: rgba(0,0,0,.5);

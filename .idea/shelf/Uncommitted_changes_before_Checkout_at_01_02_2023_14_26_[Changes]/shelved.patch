@@ -1,0 +1,121 @@
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\ninclude 'process.php';\r\n?>\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <script defer src=\"script/main.js\"></script>\r\n    <script src=\"https://kit.fontawesome.com/8b26d30613.js\" crossorigin=\"anonymous\"></script>\r\n    <link rel=\"stylesheet\" href=\"style/main.css\">\r\n    <!-- tailwindcss -->\r\n    <script src=\"https://cdn.tailwindcss.com\"></script>\r\n    <title>Auto</title>\r\n</head>\r\n<body>\r\n<header class=\"border-b-[1px] border-gray-600\">\r\n    <nav class=\"flex justify-between items-center mx-4 py-4\" id=\"navbarStyle\">\r\n        <div id=\"containerLogo\">\r\n            <a href=\"index.php\">\r\n                <i class=\"fa-solid fa-bookmark fa-xl\"></i>\r\n                <span class=\"hidden mb:\">\r\n                 BookStore\r\n                </span>\r\n            </a>\r\n        </div>\r\n        <div id=\"listLink\" class=\"rounded border-[1px] border-gray-600\">\r\n            <ul class=\"flex items-center\">\r\n                <li class=\"mx-2 text-gray-500 hover:text-gray-200\">\r\n                    <a href=\"index.php\">Recherche</a>\r\n                </li>\r\n                <li class=\"mx-2 text-gray-500 hover:text-gray-200\">\r\n                    <a href=\"livreList.php\">Livres</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </nav>\r\n</header>\r\n    <main>\r\n        <article class=\"mx-4\">\r\n            <section class=\"flex flex-col items-center\">\r\n                <div id=\"containerSearch\" class=\"my-4\">\r\n                    <h2 id=\"titreSectionSearch\">\r\n                        <span class=\"text-2xl font-medium\">Rechercher un livre</span>\r\n                    </h2>\r\n                </div>\r\n                <div id=\"search\">\r\n                    <form action=\"recherche.php\" method=\"get\" id=\"searchForm\" class=\"flex flex-row items-center\">\r\n                        <div id=\"form-field\">\r\n                            <input type=\"search\" name=\"search\" id=\"searchInput\" placeholder=\"Rechecher un fruits\" autofocus autocomplete=\"off\" required\r\n                                   class=\"border-[1px] border-gray-600 rounded-l-[5px] bg-gray-300 text-black\"\r\n                            >\r\n                            <div id=\"results\" class=\"border-[1px] border-gray-600 rounded\"></div>\r\n                        </div>\r\n                        <button type=\"submit\" class=\"border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]\">\r\n                            <i class=\"fa-solid fa-magnifying-glass\"></i>\r\n                        </button>\r\n                    </form>\r\n                </div>\r\n            </section>\r\n        </article>\r\n    </main>\r\n<footer class=\"w-full fixed bottom-0 border-t-[1px] border-gray-600 \">\r\n    <div id=\"containerFooter\">\r\n        <div class=\"py-2\"\">\r\n            <ul class=\"flex justify-center space-x-5 \" id=\"linkWebFooter\">\r\n                <li>\r\n                    <a href=\"index.php\">\r\n                        <i class=\"fa-brands fa-github fa-lg\"></i>\r\n                    </a>\r\n                </li>\r\n                <li>\r\n                    <a href=\"index.php\">\r\n                        <i class=\"fa-solid fa-globe fa-lg\"></i>\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</footer>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	
++++ b/index.php	
+@@ -22,7 +22,7 @@
+         <div id="containerLogo">
+             <a href="index.php">
+                 <i class="fa-solid fa-bookmark fa-xl"></i>
+-                <span class="hidden mb:">
++                <span class="hidden mb:block">
+                  BookStore
+                 </span>
+             </a>
+@@ -50,14 +50,14 @@
+                 <div id="search">
+                     <form action="recherche.php" method="get" id="searchForm" class="flex flex-row items-center">
+                         <div id="form-field">
+-                            <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required
++                            <input type="search" name="search" id="searchInput" placeholder="Rechecher un Livre" autofocus autocomplete="off" required
+                                    class="border-[1px] border-gray-600 rounded-l-[5px] bg-gray-300 text-black"
+                             >
+-                            <div id="results" class="border-[1px] border-gray-600 rounded"></div>
+-                        </div>
+-                        <button type="submit" class="border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]">
+-                            <i class="fa-solid fa-magnifying-glass"></i>
+-                        </button>
++                            <button type="submit" class="border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]">
++                                <i class="fa-solid fa-magnifying-glass"></i>
++                            </button>
++                            <div id="results" class="border-[1px] border-gray-600 rounded"></div>
++                        </div>
+                     </form>
+                 </div>
+             </section>
+@@ -66,14 +66,14 @@
+ <footer class="w-full fixed bottom-0 border-t-[1px] border-gray-600 ">
+     <div id="containerFooter">
+         <div class="py-2"">
+-            <ul class="flex justify-center space-x-5 " id="linkWebFooter">
++            <ul class="flex justify-center space-x-5 ">
+                 <li>
+-                    <a href="index.php">
++                    <a href="index.php" id="linkWebFooter">
+                         <i class="fa-brands fa-github fa-lg"></i>
+                     </a>
+                 </li>
+                 <li>
+-                    <a href="index.php">
++                    <a href="index.php" id="linkWebFooter">
+                         <i class="fa-solid fa-globe fa-lg"></i>
+                     </a>
+                 </li>
+Index: readme
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Autocomplétion\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/readme b/readme
+--- a/readme	
++++ b/readme	
+@@ -1,2 +1,3 @@
+ Autocomplétion
+ 
++    Réaliser un barre de recherche avec autocomplétion des resultats en temps réel, depuis un base de données.
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"966ca5fd-cd1d-4287-9ab8-4ef831bd97aa\" name=\"Changes\" comment=\"ajout css responsif mobile avec tailwinds\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/livreList.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/livreList.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/style/main.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/style/main.css\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"NewSearchBar\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Kzel8L8gezabLbjyishik4I9qN\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Autocompletion&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\wamp64\\www\\Autocompletion\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"966ca5fd-cd1d-4287-9ab8-4ef831bd97aa\" name=\"Changes\" comment=\"\" />\r\n      <created>1674981993775</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1674981993775</updated>\r\n      <workItem from=\"1674981998990\" duration=\"33000\" />\r\n      <workItem from=\"1675068376510\" duration=\"246000\" />\r\n      <workItem from=\"1675090476719\" duration=\"6668000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"change new version\">\r\n      <created>1675098692380</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675098692380</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"change new version\">\r\n      <created>1675098711540</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675098711540</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"recherche php\">\r\n      <created>1675179906181</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675179906181</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"ajout navbar\">\r\n      <created>1675247013086</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675247013086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"ajout css responsif mobile avec tailwinds\">\r\n      <created>1675250581972</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675250581972</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"change new version\" />\r\n    <MESSAGE value=\"recherche php\" />\r\n    <MESSAGE value=\"ajout navbar\" />\r\n    <MESSAGE value=\"ajout css responsif mobile avec tailwinds\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"ajout css responsif mobile avec tailwinds\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="ajout css responsif mobile avec tailwinds">
++    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="ajout page livre">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/livreList.php" beforeDir="false" afterPath="$PROJECT_DIR$/livreList.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/readme" beforeDir="false" afterPath="$PROJECT_DIR$/readme" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/main.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -111,7 +112,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1675250581972</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="ajout page livre">
++      <created>1675256185588</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1675256185588</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -122,7 +130,8 @@
+     <MESSAGE value="recherche php" />
+     <MESSAGE value="ajout navbar" />
+     <MESSAGE value="ajout css responsif mobile avec tailwinds" />
+-    <option name="LAST_COMMIT_MESSAGE" value="ajout css responsif mobile avec tailwinds" />
++    <MESSAGE value="ajout page livre" />
++    <option name="LAST_COMMIT_MESSAGE" value="ajout page livre" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
