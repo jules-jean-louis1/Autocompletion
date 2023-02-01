@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="ajout navbar">
+    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="ajout css responsif mobile avec tailwinds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/livreList.php" beforeDir="false" afterPath="$PROJECT_DIR$/livreList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/main.css" afterDir="false" />
     </list>
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675247013086</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajout css responsif mobile avec tailwinds">
+      <created>1675250581972</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675250581972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +121,8 @@
     <MESSAGE value="change new version" />
     <MESSAGE value="recherche php" />
     <MESSAGE value="ajout navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout navbar" />
+    <MESSAGE value="ajout css responsif mobile avec tailwinds" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout css responsif mobile avec tailwinds" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

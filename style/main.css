@@ -28,3 +28,12 @@ main {
     color: #f2f3f6;
     font-family: 'Montserrat', sans-serif;
 }
+/****##### L I V R E #####****/
+#containerLivre{
+    background-color: rgba(0,0,0,.5);
+    width: 45%;
+    max-width: 45%;
+}
+#containerLivre h2{
+    color: #f2f3f6;
+}

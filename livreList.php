@@ -43,17 +43,21 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         </nav>
     </header>
     <main>
-    <article>
-        <section>
-            <div id="containerListeLivre">
+    <article class="flex">
+        <section class="flex justify-center">
+            <div id="containerListeLivre" class="flex justify-center flex-wrap mt-10 mx-2">
                 <?php
-                foreach ($result as $livre) {
-                    echo "<div class='border-b-[1px] border-gray-600 py-2'>";
-                    echo "<h2 class='text-2xl font-bold text-gray-500'>{$livre['book']}</h2>";
-                    echo "<p class='text-gray-500'>{$livre['author']}</p>";
-                    echo "</div>";
-                }
-                ?>
+                foreach ($result as $livre) { ?>
+                    <div class='border-[1px] rounded border-gray-600 py-2 flex flex-col items-center justify-center mr-4 my-4' id="containerLivre">
+                        <h2 class='min-w-40 text-lg font-bold text-gray-500 px-2'>
+                            <?php echo $livre['book'];?>
+                        </h2>
+                        <img src="<?= $livre['cover'];?>" alt="img" class="w-20 h-20">
+                        <p class='text-gray-500'>
+                            <?= $livre['author'];?>
+                        </p>
+                    </div>
+                <?php } ?>
             </div>
         </section>
     </article>
