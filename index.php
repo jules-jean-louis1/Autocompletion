@@ -48,7 +48,7 @@ include 'process.php';
                     </h2>
                 </div>
                 <div id="search">
-                    <form action="recherche.php" method="get" id="searchForm" class="flex flex-row items-center">
+                    <form action="search.php" method="get" id="searchForm" class="flex flex-row items-center">
                         <div id="form-field">
                             <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required
                                    class="border-[1px] border-gray-600 rounded-l-[5px] bg-gray-300 text-black"
