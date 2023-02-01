@@ -22,7 +22,7 @@ include 'process.php';
         <div id="containerLogo">
             <a href="index.php">
                 <i class="fa-solid fa-bookmark fa-xl"></i>
-                <span class="hidden mb:">
+                <span class="hidden mb:block">
                  BookStore
                 </span>
             </a>
@@ -53,11 +53,11 @@ include 'process.php';
                             <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required
                                    class="border-[1px] border-gray-600 rounded-l-[5px] bg-gray-300 text-black"
                             >
+                            <button type="submit" class="border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
                             <div id="results" class="border-[1px] border-gray-600 rounded"></div>
                         </div>
-                        <button type="submit" class="border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
                     </form>
                 </div>
             </section>
