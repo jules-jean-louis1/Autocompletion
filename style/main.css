@@ -6,8 +6,11 @@
     box-sizing: border-box;
 }
 body {
-    background: url("../images/desktop-1920x1080.jpg") no-repeat center center fixed;
+    background: url("../images/BVToZW-2116921599.jpg") no-repeat center center fixed;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
 header {
     background-color: rgba(0,0,0,.5);
 }
@@ -27,6 +30,24 @@ main {
 #titreSectionSearch {
     color: #f2f3f6;
     font-family: 'Montserrat', sans-serif;
+}
+#warpperForm {
+    background-color: rgba(0,0,0,.5);
+}
+#results {
+    background-color: rgba(0,0,0,.5);
+}
+#results:hover {
+    background-color: rgba(0,0,0,.7);
+}
+.result {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    border: 1px solid rgb(71 85 105);
+}
+.result:hover {
+    background-color: #6E3FC7;
 }
 /****##### L I V R E #####****/
 #containerLivre{

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="page de recherche fonctionnel avec toutes les informations">
+    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process.php" beforeDir="false" afterPath="$PROJECT_DIR$/process.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,12 +27,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="NewSearchBar" />
+    <option name="BRANCH" value="test_search" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="NewSearchBar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +76,7 @@
       <workItem from="1674981998990" duration="33000" />
       <workItem from="1675068376510" duration="246000" />
       <workItem from="1675090476719" duration="6668000" />
-      <workItem from="1675262018939" duration="7012000" />
+      <workItem from="1675269705577" duration="5973000" />
     </task>
     <task id="LOCAL-00001" summary="change new version">
       <created>1675098692380</created>
@@ -112,12 +113,12 @@
       <option name="project" value="LOCAL" />
       <updated>1675250581972</updated>
     </task>
-    <task id="LOCAL-00006" summary="page de recherche fonctionnel avec toutes les informations">
-      <created>1675267744975</created>
+    <task id="LOCAL-00006" summary="merge">
+      <created>1675269825284</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1675267744975</updated>
+      <updated>1675269825284</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -141,15 +142,15 @@
     <MESSAGE value="recherche php" />
     <MESSAGE value="ajout navbar" />
     <MESSAGE value="ajout css responsif mobile avec tailwinds" />
-    <MESSAGE value="page de recherche fonctionnel avec toutes les informations" />
-    <option name="LAST_COMMIT_MESSAGE" value="page de recherche fonctionnel avec toutes les informations" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/process.php</url>
-          <line>3</line>
+          <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

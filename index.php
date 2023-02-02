@@ -23,7 +23,7 @@ include 'process.php';
             <a href="index.php">
                 <i class="fa-solid fa-bookmark fa-xl"></i>
                 <span class="hidden mb:block">
-                 BookStore
+                 BooKS
                 </span>
             </a>
         </div>
@@ -42,23 +42,26 @@ include 'process.php';
     <main>
         <article class="mx-4">
             <section class="flex flex-col items-center">
-                <div id="containerSearch" class="my-4">
-                    <h2 id="titreSectionSearch">
-                        <span class="text-2xl font-medium">Rechercher un livre</span>
-                    </h2>
-                </div>
-                <div id="search">
-                    <form action="search.php" method="get" id="searchForm" class="flex flex-row items-center">
-                        <div id="form-field">
-                            <input type="search" name="search" id="searchInput" placeholder="Rechecher un fruits" autofocus autocomplete="off" required
-                                   class="border-[1px] border-gray-600 rounded-l-[5px] bg-gray-300 text-black"
-                            >
-                            <button type="submit" class="border-r-[2px] border-y-[2px] border-gray-600 rounded-r-[5px] px-2 py-[0.4px]">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <div id="results" class="border-[1px] border-gray-600 rounded"></div>
-                        </div>
-                    </form>
+                <div id="warpperForm" class=" flex flex-col items-center mt-[15%] border-[1px] rounded border-gray-600 p-2">
+                    <div id="containerSearch" class="my-4">
+                        <h2 id="titreSectionSearch">
+                            <span class="text-2xl font-medium">Rechercher un livre</span>
+                        </h2>
+                    </div>
+                    <div id="search">
+                        <form action="search.php" method="get" id="searchForm" class="flex flex-row items-center pb-3">
+                            <div id="form-field">
+                                <div class="flex flex-row items-center">
+                                    <input type="search" name="search" id="searchInput" placeholder="Rechecher un livre" autofocus autocomplete="off" required
+                                           class="rounded-l-[5px] bg-white text-black p-2">
+                                    <button type="submit" class="rounded-r-[5px] p-2 py-[10px] bg-[#6E3FC7] hover:bg-violet-900">
+                                        <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                                    </button>
+                                </div>
+                                <div id="results" class="rounded"></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
         </article>
