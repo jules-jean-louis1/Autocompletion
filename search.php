@@ -57,7 +57,7 @@ if (isset($_GET['search'])){
 <main>
     <article>
         <section class="h-5/6">
-            <div id="diplayBook" class=" pt-[20%]" >
+            <div id="diplayBook" class=" pt-[12%]" >
                 <div id="resultsearchbook">
                     <h2 class="text-2xl font-semibold text-center py-4">
                         Résultat de la recherche:
@@ -111,16 +111,16 @@ if (isset($_GET['search'])){
         </section>
     </article>
 </main>
-<footer class="w-full fixed bottom-0 border-t-[1px] border-gray-600 ">
+<footer class="w-full fixed bottom-0">
     <div id="containerFooter">
         <div class="py-2"">
         <ul class="flex justify-center space-x-5 " id="linkWebFooter">
-            <li>
+            <li class="flex items-center rounded-[1.4rem] bg-[#ff6c4d] px-7 py-[2px]">
                 <a href="index.php">
                     <i class="fa-brands fa-github fa-lg"></i>
                 </a>
             </li>
-            <li>
+            <li class="rounded-[1.4rem] bg-[#ba59ff] px-7 py-[2px] hover:bg-[#483285]">
                 <a href="index.php">
                     <i class="fa-solid fa-globe fa-lg"></i>
                 </a>
