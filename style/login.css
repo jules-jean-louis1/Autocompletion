@@ -9,3 +9,22 @@
 .tab-body.active {
     display: block;
 }
+
+/*#####################################
+#######################################
+
+            REGISTER PAGE
+
+#######################################
+#####################################*/
+
+/* class for small text */
+.is-invalid {
+    color: red;
+    font-size: 12px;
+    max-width: 232px;
+}
+.is-valid {
+    color: green;
+    font-size: 12px;
+}
