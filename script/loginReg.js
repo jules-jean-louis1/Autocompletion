@@ -83,15 +83,24 @@ const  validPassword2 = (c_passwordR) => {
 }
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let dataForm = new FormData(registerForm);
+    if (validEmail(registerForm.emailR) && validPassword(registerForm.passwordR) && validPassword2(registerForm.c_passwordR)) {
+        let dataForm = new FormData(registerForm);
         fetch('connexion.php', {
             method: 'POST',
             body: dataForm
         })
             .then((response) => {
                 if (response.status === 201) {
-                    alert(response.statusText);
+                    let msg = document.querySelector("#msgCount");
+                    msg.innerHTML = "Votre compte a bien été créé";
+                    msg.classList.add("alert-success");
+                    msg.classList.remove("alert-danger");
                 }
             });
-
+    } else {
+        let msg = document.querySelector("#msgCount");
+        msg.innerHTML = "Veuillez remplir correctement le formulaire";
+        msg.classList.add("alert-danger");
+        msg.classList.remove("alert-success");
+    }
 });

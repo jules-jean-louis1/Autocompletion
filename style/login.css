@@ -28,3 +28,18 @@
     color: green;
     font-size: 12px;
 }
+
+.alert-success {
+    color: green;
+    background: #0080001c;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+}
+.alert-danger {
+    color: red;
+    background: #ff00001c;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+}

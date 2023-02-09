@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $pdo = new PDO('mysql:host=localhost;dbname=autocompletion;charset=utf8', 'root', '');
 
 // Envoi des données du formulaire d'inscription à la base de données sql
@@ -19,6 +21,26 @@ if (isset($_POST['emailR'])) {
     }
 
     die();
+}
+
+// Envoi des données du formulaire de connexion à la base de données sql
+if (isset($_POST['emailL'])) {
+    $email = $_POST['emailL'];
+    $password = $_POST['passwordL'];
+
+    $query = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+    $result = $query->execute([
+        'email' => $email
+    ]);
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+        header('HTTP/1.1 200 Votre resource a bien été créée');
+        echo json_encode(['status' => '200', 'responseText' => 'Vous êtes connecté']);
+    } else {
+        header('HTTP/1.1 401 Votre resource a bien été créée');
+        echo json_encode(['status' => '401', 'responseText' => 'Email ou mot de passe incorrect']);
+    }
 }
 ?>
 
@@ -42,30 +64,35 @@ if (isset($_POST['emailR'])) {
         </div>
     <!--    FormConnexion-->
         <div class="tab-body" data-id="connexion">
-            <form action="" method="post" id="LoginForm">
+            <form action="connexion.php" method="post" id="LoginForm">
                 <div class="flex">
                     <div class="flex flex-col">
-                        <label for="email">Email :</label>
-                        <input type="text" class="input rounded bg-slate-300 p-2" placeholder="Nom d'utilisateur">
+                        <label for="emailL">Email :</label>
+                        <input type="text" name="emailL" id="emailL" class="input rounded bg-slate-300 p-2" placeholder="Nom d'utilisateur">
                         <small></small>
                     </div>
                 </div>
                 <div class="flex">
                     <div class="flex flex-col">
-                        <label for="password">Mot de passe</label>
-                        <input placeholder="Mot de Passe" type="password"  class="input rounded bg-slate-300 p-2">
+                        <label for="passwordL">Mot de passe</label>
+                        <input name="passwordL" id="passwordL" placeholder="Mot de Passe" type="password"  class="input rounded bg-slate-300 p-2">
                         <small></small>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <a href="#" class="link">Mot de passe oublié ?</a>
-                    <button type="submit" class="rounded bg-purple-500 py-2 text-white hover:bg-purple-700" id="loginbtn">Connexion</button>
+                    <button type="submit" class="rounded bg-purple-500 py-2 text-white hover:bg-purple-700" id="loginbtn">
+                        Connexion
+                    </button>
                 </div>
             </form>
         </div>
     <!--    FormInscription-->
         <div class="flex">
             <div class="tab-body" data-id="inscription">
+                <div class="registerMsg">
+                    <span id="msgCount"></span>
+                </div>
                 <form action="connexion.php" method="post" id="register-form">
                     <div class="flex py-2">
                         <div class="flex flex-col">
