@@ -37,3 +37,28 @@ Lorsque la réponse est reçue, elle est parsée en JSON en utilisant response.j
     Pour chaque élément "div", son contenu est défini en utilisant element.book et un événement "click" est ajouté pour définir la valeur de l'input sur le contenu lorsqu'il est cliqué.
 
     Finalement, les éléments "div" sont ajoutés au div avec l'ID "results". Si la valeur de l'input est vide, le contenu de "results" est effacé.*/
+
+let tabs = document.querySelectorAll(".tab-link:not(.desactive)");
+
+tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        unSelectAll();
+        tab.classList.add("active");
+        let ref = tab.getAttribute("data-ref");
+        document
+            .querySelector(`.tab-body[data-id="${ref}"]`)
+            .classList.add("active");
+    });
+});
+
+function unSelectAll() {
+    tabs.forEach((tab) => {
+        tab.classList.remove("active");
+    });
+    let tabbodies = document.querySelectorAll(".tab-body");
+    tabbodies.forEach((tab) => {
+        tab.classList.remove("active");
+    });
+}
+
+document.querySelector(".tab-link.active").click();
