@@ -6,10 +6,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     $query = $pdo->prepare("INSERT INTO utilisateurs (email, password) VALUES (:email, :password)");
-    $query->execute([
+    $result = $query->execute([
         'username' => $username,
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
+    if ($result) {
+        header('HTTP/1.1 201 Votre resource a bien été créée');
+        echo json_encode(['status' => '201', 'responseText' => 'Votre utilisateur a bien était crée']);
+    }
     die();
 }
 ?>
