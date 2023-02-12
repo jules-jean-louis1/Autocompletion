@@ -104,3 +104,30 @@ registerForm.addEventListener("submit", (e) => {
         msg.classList.remove("alert-success");
     }
 });
+
+// Login form ###########################################################
+const loginForm = document.querySelector("#LoginForm");
+
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(loginForm);
+
+    fetch("connexion.php", {
+        method: "POST",
+        body: formData,
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                // La connexion a réussi, on redirige vers la page d'accueil
+                window.location.href = "index.php";
+            } else {
+                // Affichage de l'erreur
+                const small = document.querySelector("#LoginForm small");
+                small.textContent = data.message;
+                small.classList.add("text-red-500");
+            }
+        })
+        .catch((error) => console.error(error));
+});

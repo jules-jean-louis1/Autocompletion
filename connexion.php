@@ -28,18 +28,20 @@ if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
-    $query = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email");
-    $result = $query->execute([
-        'email' => $email
-    ]);
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+// Requête pour récupérer l'utilisateur correspondant à l'email saisi
+    $stmt = $pdo->prepare('SELECT * FROM user WHERE email = :email');
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        header('HTTP/1.1 200 Votre resource a bien été créée');
-        echo json_encode(['status' => '200', 'responseText' => 'Vous êtes connecté']);
+        // La connexion a réussi, on enregistre l'utilisateur en session
+        $_SESSION['user'] = $user;
+        echo json_encode(['success' => true]);
     } else {
-        header('HTTP/1.1 401 Votre resource a bien été créée');
-        echo json_encode(['status' => '401', 'responseText' => 'Email ou mot de passe incorrect']);
+        // La connexion a échoué, on renvoie une erreur
+        echo json_encode(['success' => false, 'message' => 'Identifiants incorrects']);
     }
 }
 ?>
