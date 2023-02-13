@@ -110,14 +110,20 @@ const loginForm = document.querySelector("#LoginForm");
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    console.log(loginForm);
     const formData = new FormData(loginForm);
 
     fetch("connexion.php", {
         method: "POST",
         body: formData,
     })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) { // Vérifiez que la réponse est réussie
+                return response.json();
+            } else {
+                throw new Error("Erreur lors de la requête.");
+            }
+        })
         .then((data) => {
             if (data.success) {
                 // La connexion a réussi, on redirige vers la page d'accueil

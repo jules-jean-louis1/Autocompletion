@@ -22,14 +22,14 @@ if (isset($_POST['emailR'])) {
 
     die();
 }
-
+var_dump($_POST);
 // Envoi des données du formulaire de connexion à la base de données sql
-if (isset($_POST['emailL'])) {
+/*if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
 // Requête pour récupérer l'utilisateur correspondant à l'email saisi
-    $stmt = $pdo->prepare('SELECT * FROM user WHERE email = :email');
+    $stmt = $pdo->prepare('SELECT * FROM utilisateurs WHERE email = :email');
     $stmt->bindParam(':email', $email);
     $stmt->execute();
 
@@ -38,12 +38,37 @@ if (isset($_POST['emailL'])) {
     if ($user && password_verify($password, $user['password'])) {
         // La connexion a réussi, on enregistre l'utilisateur en session
         $_SESSION['user'] = $user;
-        echo json_encode(['success' => true]);
+        ob_clean(); // Supprime tous les tampons de sortie
+        echo json_encode(['success' => true], JSON_UNESCAPED_UNICODE);
+        exit(); // arrête l'exécution du script
     } else {
         // La connexion a échoué, on renvoie une erreur
         echo json_encode(['success' => false, 'message' => 'Identifiants incorrects']);
     }
+}*/
+
+if (isset($_POST['emailL'])) {
+    $email = $_POST['emailL'];
+    $password = $_POST['passwordL'];
+
+    $statement = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+    $query = $statement->execute([
+        'email' => $email
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    var_dump($result);
+    var_dump($_POST['passwordL']);
+    var_dump($result['password']);
+    $check = password_verify($_POST['passwordL'], $result['password']);
+    var_dump($check);
+    if (password_verify($_POST['passwordL'], $result['password'])) {
+        $_SESSION['user'] = $result;
+    }
+    var_dump();
+
+    die();
 }
+echo "Bonjour" . " ". $_SESSION['user']['email'];
 ?>
 
 
@@ -127,6 +152,24 @@ if (isset($_POST['emailL'])) {
         <div class="tab-footer flex space-x-5 m-2 text-white">
             <a class="tab-link active p-2 rounded bg-pink-600 " data-ref="connexion" href="javascript:void(0)">Connexion</a>
             <a class="tab-link p-2 rounded bg-pink-800" data-ref="inscription" href="javascript:void(0)">Inscription</a>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <button>
+                <a href="deco.php" class="link">Deconnexion</a>
+            </button>
+            <button onclick="clearSession()">Supprimer les données de session</button>
+
+            <script>
+                function clearSession() {
+                    // Supprimer toutes les données de session
+                    sessionStorage.clear();
+
+                    // Recharger la page
+                    location.reload();
+                }
+            </script>
+
         </div>
     </div>
 </main>
