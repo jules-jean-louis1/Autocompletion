@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="Connnexion functionne mais prbl" />
+    <list default="true" id="966ca5fd-cd1d-4287-9ab8-4ef831bd97aa" name="Changes" comment="test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deco.php" beforeDir="false" afterPath="$PROJECT_DIR$/deco.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +83,7 @@
       <workItem from="1676231205790" duration="561000" />
       <workItem from="1676278597353" duration="23000" />
       <workItem from="1676278640513" duration="15996000" />
+      <workItem from="1676306523149" duration="2418000" />
     </task>
     <task id="LOCAL-00001" summary="change new version">
       <created>1675098692380</created>
@@ -199,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676303457886</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="test">
+      <created>1676307666822</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1676307666822</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +241,8 @@
     <MESSAGE value="ajout affichage des erreurs en temps reel avec regexp" />
     <MESSAGE value="ajout module de co" />
     <MESSAGE value="Connnexion functionne mais prbl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connnexion functionne mais prbl" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

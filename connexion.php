@@ -23,12 +23,17 @@ if (isset($_POST['emailR'])) {
     die();
 }
 var_dump($_POST);
+ini_set('display_errors', 1);
 // Envoi des données du formulaire de connexion à la base de données sql
 if (isset($_POST['emailL'])) {
+    // Se connecter à la base de données
+    $pdo = new PDO('mysql:host=localhost;dbname=autocompletion;charset=utf8', 'root', '');
+
+    // Récupérer les données du formulaire de connexion
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
-// Vérifier si l'email et le mot de passe sont corrects
+    // Vérifier si l'email et le mot de passe sont corrects
     $query = "SELECT * FROM utilisateurs WHERE email = :email";
     $statement = $pdo->prepare($query);
     $statement->execute(array(':email' => $email));
@@ -36,13 +41,16 @@ if (isset($_POST['emailL'])) {
 
     if ($user && password_verify($password, $user['password'])) {
         // Les informations d'identification sont correctes
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
         echo 'success';
     } else {
         // Les informations d'identification sont incorrectes
         echo 'error';
+        print_r($statement->errorInfo());
     }
 }
-var_dump($_SESSION['user']);
+var_dump(isset($_SESSION['user']));
 /*if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
