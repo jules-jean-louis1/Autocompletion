@@ -24,7 +24,7 @@ if (isset($_POST['emailR'])) {
 }
 var_dump($_POST);
 // Envoi des données du formulaire de connexion à la base de données sql
-/*if (isset($_POST['emailL'])) {
+if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
@@ -34,20 +34,14 @@ var_dump($_POST);
     $stmt->execute();
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && password_verify($password, $user['password'])) {
+    var_dump($user);
+    if(is_array($user) && password_verify($_POST['passwordL'], $user['password'])) {
         // La connexion a réussi, on enregistre l'utilisateur en session
         $_SESSION['user'] = $user;
-        ob_clean(); // Supprime tous les tampons de sortie
-        echo json_encode(['success' => true], JSON_UNESCAPED_UNICODE);
-        exit(); // arrête l'exécution du script
-    } else {
-        // La connexion a échoué, on renvoie une erreur
-        echo json_encode(['success' => false, 'message' => 'Identifiants incorrects']);
     }
-}*/
-
-if (isset($_POST['emailL'])) {
+}
+var_dump($_SESSION['user']);
+/*if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
@@ -56,19 +50,22 @@ if (isset($_POST['emailL'])) {
         'email' => $email
     ]);
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-    var_dump($result);
-    var_dump($_POST['passwordL']);
-    var_dump($result['password']);
-    $check = password_verify($_POST['passwordL'], $result['password']);
-    var_dump($check);
-    if (password_verify($_POST['passwordL'], $result['password'])) {
-        $_SESSION['user'] = $result;
+    if(is_array($result) && password_verify($_POST['passwordL'], $result['password'])) {
+        session_regenerate_id();
+        $_SESSION['loggedin'] = TRUE;
+        $_SESSION['name'] = $_POST['emailL'];
+        $_SESSION['id'] = $result['id'];
+        header('Content-Type: application/json');
+        echo json_encode(['success' => true]);
+    } else {
+        header('Content-Type: application/json');
+        echo json_encode(['success' => false, 'message' => 'Email ou mot de passe incorrect']);
     }
-    var_dump();
-
     die();
 }
-echo "Bonjour" . " ". $_SESSION['user']['email'];
+if (isset($_SESSION['user'])) {
+    echo "Vous êtes connecté";
+}*/
 ?>
 
 
@@ -95,18 +92,17 @@ echo "Bonjour" . " ". $_SESSION['user']['email'];
                 <div class="flex">
                     <div class="flex flex-col">
                         <label for="emailL">Email :</label>
-                        <input type="text" name="emailL" id="emailL" class="input rounded bg-slate-300 p-2" placeholder="Nom d'utilisateur">
-                        <small></small>
+                        <input type="email" name="emailL" id="emailL" class="input rounded bg-slate-300 p-2" placeholder="Nom d'utilisateur">
                     </div>
                 </div>
                 <div class="flex">
                     <div class="flex flex-col">
                         <label for="passwordL">Mot de passe</label>
                         <input name="passwordL" id="passwordL" placeholder="Mot de Passe" type="password"  class="input rounded bg-slate-300 p-2">
-                        <small></small>
                     </div>
                 </div>
                 <div class="flex flex-col">
+                    <small></small>
                     <a href="#" class="link">Mot de passe oublié ?</a>
                     <button type="submit" class="rounded bg-purple-500 py-2 text-white hover:bg-purple-700" id="loginbtn">
                         Connexion

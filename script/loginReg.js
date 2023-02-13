@@ -106,36 +106,41 @@ registerForm.addEventListener("submit", (e) => {
 });
 
 // Login form ###########################################################
-const loginForm = document.querySelector("#LoginForm");
+const loginForm = document.querySelector('#LoginForm');
+const emailInput = document.querySelector('#emailL');
+const passwordInput = document.querySelector('#passwordL');
+const messageContainer = document.querySelector('.flex.flex-col small');
 
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log(loginForm);
-    const formData = new FormData(loginForm);
+// Ajouter un gestionnaire d'événement pour la soumission du formulaire
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Empêcher la soumission du formulaire par défaut
 
-    fetch("connexion.php", {
-        method: "POST",
-        body: formData,
+    // Récupérer les valeurs des champs d'entrée
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    // Effectuer une validation côté client (ex. vérification de la longueur, format de l'e-mail, etc.)
+    // ...
+
+    // Envoyer les données du formulaire au serveur via une requête AJAX avec fetch
+    fetch('connexion.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `email=${email}&password=${password}`
     })
-        .then((response) => {
-            if (response.ok) { // Vérifiez que la réponse est réussie
-                return response.json();
+        .then(response => response.text())
+        .then(result => {
+            // Gérer la réponse du serveur (ex. afficher un message d'erreur ou de réussite)
+            if (result === 'success') {
+                messageContainer.textContent = 'Connecté avec succès.';
             } else {
-                throw new Error("Erreur lors de la requête.");
+                messageContainer.textContent = 'E-mail ou mot de passe incorrect.';
             }
         })
-        .then((data) => {
-            if (data.success) {
-                // La connexion a réussi, on redirige vers la page d'accueil
-                window.location.href = "index.php";
-            } else {
-                // Affichage de l'erreur
-                const small = document.querySelector("#LoginForm small");
-                small.textContent = data.message;
-                small.classList.add("text-red-500");
-            }
-        })
-        .catch((error) => console.error(error));
+        .catch(error => {
+            console.error('Une erreur s\'est produite lors de la requête.', error);
+        });
 });
+
+
 
 
