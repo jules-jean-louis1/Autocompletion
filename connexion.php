@@ -28,16 +28,18 @@ if (isset($_POST['emailL'])) {
     $email = $_POST['emailL'];
     $password = $_POST['passwordL'];
 
-// Requête pour récupérer l'utilisateur correspondant à l'email saisi
-    $stmt = $pdo->prepare('SELECT * FROM utilisateurs WHERE email = :email');
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
+// Vérifier si l'email et le mot de passe sont corrects
+    $query = "SELECT * FROM utilisateurs WHERE email = :email";
+    $statement = $pdo->prepare($query);
+    $statement->execute(array(':email' => $email));
+    $user = $statement->fetch();
 
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($user);
-    if(is_array($user) && password_verify($_POST['passwordL'], $user['password'])) {
-        // La connexion a réussi, on enregistre l'utilisateur en session
-        $_SESSION['user'] = $user;
+    if ($user && password_verify($password, $user['password'])) {
+        // Les informations d'identification sont correctes
+        echo 'success';
+    } else {
+        // Les informations d'identification sont incorrectes
+        echo 'error';
     }
 }
 var_dump($_SESSION['user']);
@@ -69,7 +71,7 @@ if (isset($_SESSION['user'])) {
 ?>
 
 
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
